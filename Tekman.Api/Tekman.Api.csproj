@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Tekman.Repository\Tekman.Repository.csproj" />
+    <ProjectReference Include="..\Tekman.Service\Tekman.Service.csproj" />
+  </ItemGroup>
+
+
+</Project>
