@@ -4,6 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Tekman.Repository.Models;
+using Tekman.Service.EntidadesDto;
+using Tekman.Service.Interface;
 
 namespace Tekman.Api.Controllers
 {
@@ -11,18 +14,24 @@ namespace Tekman.Api.Controllers
     [ApiController]
     public class CompetenciaController : ControllerBase
     {
+        private readonly ICompetenciaService _competenciaService;
+        public CompetenciaController(ICompetenciaService competenciaService)
+        {
+            _competenciaService = competenciaService;
+        }
+
         [HttpPost]
         [Route("Create")]
-        public IActionResult Create()
+        public IActionResult Create(CompetenciaDto competencia)
         {
-            return Ok();
+            return Ok(_competenciaService.NuevaCompetencia(competencia));
         }
 
         [HttpGet]
         [Route("ListCompetencias")]
-        public ActionResult ListCompetencias(int? id)
+        public List<Competencia> ListCompetencias()
         {
-            return Ok();
+            return _competenciaService.ListaCompetencias();
         }
     }
 }

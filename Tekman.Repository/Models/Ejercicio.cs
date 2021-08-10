@@ -8,7 +8,7 @@ namespace Tekman.Repository.Models
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
-        public List<Pregunta> Preguntas { get; set; }
+        public IEnumerable<Pregunta> Preguntas { get; set; }
 
     }
 }

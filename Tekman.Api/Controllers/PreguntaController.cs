@@ -4,27 +4,35 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Tekman.Repository.Models;
 using Tekman.Service.EntidadesDto;
+using Tekman.Service.Interface;
 
 namespace Tekman.Api.Controllers
 {
-    [Route("api/[Controller]")]
     [ApiController]
+    [Route("api/[Controller]")]
     public class PreguntaController : ControllerBase
     {
-        
-        [HttpPost]
-        [Route("Create")]
-        public IActionResult Create(ActividadDto actividad)
+        private readonly IPreguntasService _preguntasService;
+        public PreguntaController(IPreguntasService preguntasService)
         {
-            return Ok();     
+            _preguntasService = preguntasService;
         }
 
+        [HttpPost]
+        [Route("Create")]
+        public IActionResult Create(NewPreguntaRequest pregunta)
+        {
+            _preguntasService.NuevaPregunta(pregunta);
+            return Ok();     
+        }
+        
         [HttpGet]
         [Route("ListPreguntas")]
-        public ActionResult ListPreguntas(int? id)
+        public List<Pregunta> ListPreguntas()
         {
-            return Ok();
+            return _preguntasService.ListaPreguntas();
         }
         
     }

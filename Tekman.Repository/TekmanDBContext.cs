@@ -16,6 +16,8 @@ namespace Tekman.Repository
         public DbSet<Competencia> Competencia { get; set; }
         public DbSet<Ejercicio> Ejercicio { get; set; }
         public DbSet<Pregunta> Pregunta { get; set; }
+        public DbSet<RespuestaAlumno> RespuestaAlumno { get; set; }
+        public DbSet<PreguntaRespuesta> PreguntaRespuesta { get; set; }
 
     }
 }

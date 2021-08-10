@@ -4,6 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Tekman.Repository.Models;
+using Tekman.Service.EntidadesDto;
+using Tekman.Service.Interface;
 
 namespace Tekman.Api.Controllers
 {
@@ -11,18 +14,24 @@ namespace Tekman.Api.Controllers
     [ApiController]
     public class EjercicioController : ControllerBase
     {
+        private readonly IEjercicioService _ejercicioService;
+        public EjercicioController(IEjercicioService ejercicioService)
+        {
+            _ejercicioService = ejercicioService;
+        }
+
         [HttpPost]
         [Route("Create")]
-        public IActionResult Create()
+        public IActionResult Create(EjercicioDto ejercicio)
         {
-            return Ok();
+            return Ok(_ejercicioService.NuevoEjercicio(ejercicio));
         }
 
         [HttpGet]
         [Route("ListEjercicios")]
-        public ActionResult ListEjercicios(int? id)
+        public List<Ejercicio> ListEjercicios()
         {
-            return Ok();
+            return _ejercicioService.ListaEjercicios();
         }
     }
 }

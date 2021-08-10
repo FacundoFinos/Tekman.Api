@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace Tekman.Service.EntidadesDto
 {
-    public class PreguntaDto
+    public class NewPreguntaRequest
     {
         public int Id { get; set; }
+        [Required]
         public string Descripcion { get; set; }
-        public string RespuestaAlumna { get; set; }
+        [Required]
         public string RespuestaCorrecta { get; set; }
-        public bool Resultado { get; set; }
         
     }
 }

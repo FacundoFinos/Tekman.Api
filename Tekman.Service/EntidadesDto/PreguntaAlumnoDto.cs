@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Tekman.Repository.Models
+namespace Tekman.Service.EntidadesDto
 {
-    public class Pregunta
+    public class PreguntaAlumnoDto
     {
         public int Id { get; set; }
-        public string Descripcion { get; set; }
-        
+        public string Pregunta { get; set; }
     }
 }
