@@ -8,14 +8,14 @@ namespace Tekman.Service.Mapping
     {
         public MappingProfile()
         {
-            CreateMap<Actividad, ActividadDto>();
-            CreateMap<ActividadDto, Actividad>();
+            CreateMap<Actividad, ActividadDto>().ForMember(x => x.Ejercicios, opt => opt.Ignore());
+            CreateMap<ActividadDto, Actividad>().ForMember(x => x.Ejercicios, opt => opt.Ignore());
             CreateMap<Competencia, CompetenciaDto>();
             CreateMap<CompetenciaDto, Competencia>();
             CreateMap<Ejercicio, EjercicioDto>();
             CreateMap<EjercicioDto, Ejercicio>();
-            CreateMap<Pregunta, NewPreguntaRequest>();
-            CreateMap<NewPreguntaRequest, Pregunta>();
+            CreateMap<Pregunta, PreguntaDto>();
+            CreateMap<PreguntaDto, Pregunta>();
         }
     }
 }

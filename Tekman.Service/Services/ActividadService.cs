@@ -40,6 +40,29 @@ namespace Tekman.Service.Services
 
         }
 
+        public decimal Evaluacion(string tipoEvalauacion)
+        {
+            try
+            {
+                throw new NotImplementedException();
+
+                if (tipoEvalauacion == "A")
+                {
+                    //Aplicar la logica para que retorne el resultado de la evaluacion calculado por actividades
+                }
+                if (tipoEvalauacion == "C")
+                {
+                    //Aplicar la logica para que retorne el resultado de la evaluacion calculado por competencias
+                }
+
+                return 10;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
         public decimal EvaluarRespuestas(RespuestaDto respuestas)
         {
             try
@@ -97,8 +120,11 @@ namespace Tekman.Service.Services
                     throw new Exception("La actividad no tiene ejercicios asociados. Revise la lista de id de ejercicios del request.");
                 }
 
-                //Obtiene el proximo ID, reemplaza el autoincremental de la BD
-                var newID = _dbContext.Ejercicio.Select(x => x.Id).Max() + 1;
+                var newID = 1;
+                if (_dbContext.Actividad.Count() > 0)
+                {
+                    newID = _dbContext.Actividad.Select(x => x.Id).Max() + 1;
+                }
 
                 var nuevaAct = _mapper.Map<Actividad>(actividad);
                 nuevaAct.Ejercicios = listaEjercicios;

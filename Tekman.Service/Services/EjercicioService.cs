@@ -19,20 +19,25 @@ namespace Tekman.Service.Services
             _dbContext = bdContext;
             _mapper = mapper;
         }
+
         public List<Ejercicio> ListaEjercicios()
         {
-            _dbContext.Ejercicio.ToList();
+            return _dbContext.Ejercicio.ToList();
         }
 
         public bool NuevoEjercicio(EjercicioDto ejercicio)
         {
             try
             {
+                var newID = 1;
                 //Obtiene el proximo ID, reemplaza el autoincremental de la BD
-                var newID = _dbContext.Ejercicio.Select(x => x.Id).Max() + 1;
+                if (_dbContext.Ejercicio.Count() > 0)
+                {
+                    newID = _dbContext.Ejercicio.Select(x => x.Id).Max() + 1;
+                }
 
-                //Busco las preguntas mediante el ID proporcionado y las agrego al ejercicio que se creará.
-                var listaPreguntas = _dbContext.Pregunta.Where(p => ejercicio.PreguntasID.Contains(p.Id)).ToList();
+                    //Busco las preguntas mediante el ID proporcionado y las agrego al ejercicio que se creará.
+                    var listaPreguntas = _dbContext.Pregunta.Where(p => ejercicio.PreguntasID.Contains(p.Id)).ToList();
 
                 //Valido que la actividad contenga al menos un ejercicio asociado
                 if (listaPreguntas.Count() == 0)

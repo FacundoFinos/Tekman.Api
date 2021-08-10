@@ -5,9 +5,8 @@ using System.Text;
 
 namespace Tekman.Service.EntidadesDto
 {
-    public class NewPreguntaRequest
+    public class PreguntaDto
     {
-        public int Id { get; set; }
         [Required]
         public string Descripcion { get; set; }
         [Required]

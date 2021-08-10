@@ -33,5 +33,7 @@ namespace Tekman.Api.Controllers
         {
             return _competenciaService.ListaCompetencias();
         }
+
+        
     }
 }

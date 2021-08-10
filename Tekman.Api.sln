@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tekman.Api", "Tekman.Api\Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tekman.Service", "Tekman.Service\Tekman.Service.csproj", "{F1646837-838D-4C3F-B428-CD64A00E66F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tekman.Infracture", "Tekman.Infracture\Tekman.Infracture.csproj", "{838FA704-A1C7-4CE3-95D1-D1664E4AECEE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tekman.Infrastructure", "Tekman.Infracture\Tekman.Infrastructure.csproj", "{838FA704-A1C7-4CE3-95D1-D1664E4AECEE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tekman.Repository", "Tekman.Repository\Tekman.Repository.csproj", "{9C7B529A-C996-4630-AC9D-8B2BA6A3A0FF}"
 EndProject

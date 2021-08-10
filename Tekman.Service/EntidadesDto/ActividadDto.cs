@@ -7,7 +7,6 @@ namespace Tekman.Service.EntidadesDto
 {
     public class ActividadDto
     {
-        public int Id { get; set; }
         [Required]
         public string Nombre { get; set; }
         [Required]
@@ -15,8 +14,7 @@ namespace Tekman.Service.EntidadesDto
         [Required]
         public int CompetenciaID { get; set; }
         [Required]
-        public ActividadTipoEnum Tipo { get; set; }
-        public double Nota { get; set; }
+        public string TipoActividad { get; set; }
 
 
     }

@@ -8,7 +8,7 @@ namespace Tekman.Service.Interface
 {
     public interface IPreguntasService
     {
-        public bool NuevaPregunta(NewPreguntaRequest pregunta);
+        public bool NuevaPregunta(PreguntaDto pregunta);
         public List<Pregunta> ListaPreguntas();
     }
 }

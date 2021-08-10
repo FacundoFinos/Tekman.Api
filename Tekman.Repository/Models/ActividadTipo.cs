@@ -5,12 +5,10 @@ using System.Text;
 
 namespace Tekman.Repository.Models
 {
-    public class Ejercicio
+    public class ActividadTipo
     {
         [Key]
-        public int Id { get; set; }
-        public string Nombre { get; set; }
-        public ICollection<Pregunta> Preguntas { get; set; }
-
+        public string Tipo { get; set; }
+        public decimal Ponderacion { get; set; }
     }
 }

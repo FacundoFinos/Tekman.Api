@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Tekman.Infracture\Tekman.Infracture.csproj" />
+    <ProjectReference Include="..\Tekman.Infracture\Tekman.Infrastructure.csproj" />
     <ProjectReference Include="..\Tekman.Repository\Tekman.Repository.csproj" />
     <ProjectReference Include="..\Tekman.Service\Tekman.Service.csproj" />
   </ItemGroup>

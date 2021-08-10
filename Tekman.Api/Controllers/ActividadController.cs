@@ -40,6 +40,11 @@ namespace Tekman.Api.Controllers
             return _actividadService.ComenzarActividad(id);
         }
 
+        /// <summary>
+        /// Recibe una lista de respuetas para una actividad y calcula el resultado de la misma.
+        /// </summary>
+        /// <param name="respuestas"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("Respuestas")]
         public decimal Respuestas(RespuestaDto respuestas)
@@ -47,6 +52,17 @@ namespace Tekman.Api.Controllers
             return _actividadService.EvaluarRespuestas(respuestas);
         }
 
-
+        /// <summary>
+        /// Obtine la nota final de la evaluacion del alumno.
+        /// El parametro de entrada es "A" para calcularla por actividades, "C" para calcularla por competencia
+        /// </summary>
+        /// <param name="tipoEvalauacion"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("Evaluacion")]
+        public decimal Evaluacion(string tipoEvalauacion)
+        {
+            return _actividadService.Evaluacion(tipoEvalauacion);
+        }
     }
 }

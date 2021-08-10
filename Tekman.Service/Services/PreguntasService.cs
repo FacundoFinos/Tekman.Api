@@ -24,12 +24,16 @@ namespace Tekman.Service.Services
            return  _dbContext.Pregunta.ToList();
         }
 
-        public bool NuevaPregunta(NewPreguntaRequest pregunta)
+        public bool NuevaPregunta(PreguntaDto pregunta)
         {
             try
             {
+                var newID = 1;
                 //Obtiene el proximo ID, reemplaza el autoincremental de la BD
-                var newID = _dbContext.Pregunta.Select(x => x.Id).Max() + 1;
+                if (_dbContext.Pregunta.Count() > 0)
+                {
+                    newID = _dbContext.Pregunta.Select(x => x.Id).Max() + 1;
+                }
 
                 var nuevaPreg = _mapper.Map<Pregunta>(pregunta);
                 nuevaPreg.Id = newID;

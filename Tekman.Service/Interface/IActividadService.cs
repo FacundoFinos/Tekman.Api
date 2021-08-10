@@ -11,5 +11,6 @@ namespace Tekman.Service.Interface
         public bool NuevaActividad(ActividadDto actividad);
         public EnunciadoActividadDto ComenzarActividad(int id);
         decimal EvaluarRespuestas(RespuestaDto respuestas);
+        decimal Evaluacion(string tipoEvalauacion);
     }
 }

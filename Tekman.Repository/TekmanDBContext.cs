@@ -18,6 +18,20 @@ namespace Tekman.Repository
         public DbSet<Pregunta> Pregunta { get; set; }
         public DbSet<RespuestaAlumno> RespuestaAlumno { get; set; }
         public DbSet<PreguntaRespuesta> PreguntaRespuesta { get; set; }
+        public DbSet<ActividadTipo> ActividadTipo { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<RespuestaAlumno>(builder =>
+            {
+                builder.HasNoKey();
+            });
+
+
+           
+        }
 
     }
+
+    
 }

@@ -22,7 +22,7 @@ namespace Tekman.Api.Controllers
 
         [HttpPost]
         [Route("Create")]
-        public IActionResult Create(NewPreguntaRequest pregunta)
+        public IActionResult Create(PreguntaDto pregunta)
         {
             _preguntasService.NuevaPregunta(pregunta);
             return Ok();     

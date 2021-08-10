@@ -8,8 +8,8 @@ namespace Tekman.Service.EntidadesDto
     public class CompetenciaDto
     {
         [Required]
-        public int Id { get; set; }
-        [Required]
         public string Descripcion { get; set; }
+        [Required]
+        public decimal Ponderacion { get; set; }
     }
 }

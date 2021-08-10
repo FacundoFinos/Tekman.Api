@@ -19,6 +19,8 @@ namespace Tekman.Service.Services
             _dbContext = bdContext;
             _mapper = mapper;
         }
+
+        
         public List<Competencia> ListaCompetencias()
         {
             return _dbContext.Competencia.ToList();
@@ -29,11 +31,16 @@ namespace Tekman.Service.Services
             try
             {
                 //Obtiene el proximo ID, reemplaza el autoincremental de la BD
-                var newID = _dbContext.Competencia.Select(x => x.Id).Max() + 1;
+                var newID = 1;
+                if (_dbContext.Competencia.Count() > 0)
+                {
+                    newID = _dbContext.Competencia.Select(x => x.Id).Max() + 1;
+                }                
 
                 var nuevaComp = _mapper.Map<Competencia>(competencia);
                 nuevaComp.Id = newID;
                 _dbContext.Competencia.Add(nuevaComp);
+                _dbContext.SaveChanges();
                 return true;
             }
             catch (Exception e)
