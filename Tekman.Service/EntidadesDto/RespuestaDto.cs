@@ -8,6 +8,12 @@ namespace Tekman.Service.EntidadesDto
     {
         public int IdActividad { get; set; }
 
-        public Dictionary<int, string> Respuestas { get; set; }
+        public List<Respuestas> Respuestas { get; set; }
+    }
+
+    public class Respuestas
+    {
+        public int Id { get; set; }
+        public string Value { get; set; }
     }
 }

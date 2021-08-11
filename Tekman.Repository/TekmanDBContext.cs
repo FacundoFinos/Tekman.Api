@@ -22,13 +22,7 @@ namespace Tekman.Repository
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<RespuestaAlumno>(builder =>
-            {
-                builder.HasNoKey();
-            });
-
-
-           
+                       
         }
 
     }

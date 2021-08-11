@@ -1,5 +1,8 @@
 ﻿using AutoMapper;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -67,18 +70,27 @@ namespace Tekman.Service.Services
         {
             try
             {
+                var NewId = 1;
                 foreach (var respuesta in respuestas.Respuestas)
                 {
-                    var respuestaCorecta = _dbContext.PreguntaRespuesta.Find(respuesta.Key);
+                    if(_dbContext.RespuestaAlumno.FirstOrDefault() != null)
+                    {
+                        NewId = _dbContext.RespuestaAlumno.Select(x => x.Id).Max() + 1;
+                    }
+
+                    var respuestaCorecta = _dbContext.PreguntaRespuesta.Find(respuesta.Id);
 
                     _dbContext.RespuestaAlumno.Add(new RespuestaAlumno()
                     {
+                        Id = NewId,
                         IdAlumno = 1,
                         IdActividad = respuestas.IdActividad,
-                        IdPregunta = respuesta.Key,
+                        IdPregunta = respuesta.Id,
                         Respuesta = respuesta.Value,
                         Resultado = (respuesta.Value == respuestaCorecta.RespuestaCorecta)
                     });
+
+                    NewId++;
 
                 }
                 _dbContext.SaveChanges();
@@ -86,9 +98,9 @@ namespace Tekman.Service.Services
                 //calculo de la nota:
                 //Para este caso el calculo de la nota se basa en el numero de respuestas correctas/preguntas de la actividad * 10;
                 var respuestasCorrectas = _dbContext.RespuestaAlumno.Where(p => p.Resultado).Count();
-                decimal resultado = (respuestasCorrectas / respuestas.Respuestas.Count()) * 10;
+                 decimal resultado = (respuestasCorrectas / respuestas.Respuestas.Count()) * 10;
 
-                return Math.Round(resultado,1);
+                return  Math.Round(resultado,1);
 
             }
             catch (Exception e)
